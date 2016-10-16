@@ -21,7 +21,7 @@ class PullUp < Movement
   end
 
   def grip_options
-    ["pull-up", "chin-up"]
+    ["pull-ups", "chin-ups"]
   end
 
   def rep_scheme_options
