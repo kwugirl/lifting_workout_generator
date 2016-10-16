@@ -1,8 +1,9 @@
 class Movement
-  attr_reader :name, :rep_scheme
+  attr_reader :name, :rep_scheme, :description
 
   def initialize
     @rep_scheme = rep_scheme_options.sample
+    @description = description
   end
 
   def to_s
@@ -10,7 +11,7 @@ class Movement
   end
 
   def inspect
-    "Class #{self.class}, @name='#{name}', @rep_scheme=#{rep_scheme}"
+    "Class #{self.class} @name='#{name}': @rep_scheme='#{rep_scheme}', @description='#{description}'"
   end
 
   def rep_scheme_options
