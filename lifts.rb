@@ -1,7 +1,7 @@
 require "./movement"
 
 class BackSquat < Movement
-  def initialize
+  def initialize(rep_scheme=nil)
     super
     @name = "back squat"
   end
@@ -16,7 +16,7 @@ class BackSquat < Movement
 end
 
 class Deadlift < Movement
-  def initialize
+  def initialize(rep_scheme=nil)
     super
     @name = "deadlift"
   end
@@ -31,7 +31,7 @@ class Deadlift < Movement
 end
 
 class BenchPress < Movement
-  def initialize
+  def initialize(rep_scheme=nil)
     super
     @name = "bench press"
   end
@@ -42,7 +42,7 @@ class BenchPress < Movement
 end
 
 class ShoulderPress < Movement
-  def initialize
+  def initialize(rep_scheme=nil)
     super
     @name = "shoulder press"
   end

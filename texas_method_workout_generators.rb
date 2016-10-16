@@ -15,7 +15,8 @@ class TexasMethodDay1 # aka VolumeDay
 
   def create_squat_exercise(five_rep_max)
     weight = BackSquat.rounded_weight(0.9 * five_rep_max)
-    Exercise.new(BackSquat.new.name, "5x5", weight)
+    squat = BackSquat.new("5x5")
+    Exercise.new(squat.name, squat.rep_scheme, weight)
   end
 
   def create_press_exercise(type, five_rep_max)
@@ -23,16 +24,19 @@ class TexasMethodDay1 # aka VolumeDay
 
     case type
     when :bench
-      Exercise.new(BenchPress.new.name, "5x5", weight)
+      press = BenchPress.new("5x5")
     when :shoulder
-      Exercise.new(ShoulderPress.new.name, "5x5", weight)
+      press = ShoulderPress.new("5x5")
     end
+
+    Exercise.new(press.name, press.rep_scheme, weight)
   end
 
   # this should increase each week, even though not going for actual 5rm
   def create_deadlift_exercise(five_rep_max)
     weight = Deadlift.rounded_weight(0.9 * five_rep_max)
-    Exercise.new(Deadlift.new.name, "1x5", weight)
+    deadlift = Deadlift.new("1x5")
+    Exercise.new(deadlift.name, deadlift.rep_scheme, weight)
   end
 
   def inspect
@@ -50,18 +54,21 @@ class TexasMethodDay2 # aka RecoveryDay
 
   def create_squat(day_1_squat)
     weight = BackSquat.rounded_weight(0.8 * day_1_squat.weight)
-    Exercise.new(BackSquat.new.name, "2x5", weight)
+    squat = BackSquat.new("2x5")
+    Exercise.new(squat.name, squat.rep_scheme, weight)
   end
 
   def create_press(day_1_press, bench_5rm, shoulder_press_5rm)
     case day_1_press.movement
     when "bench press"
       weight = (0.9 * shoulder_press_5rm).round
-      Exercise.new(ShoulderPress.new, "3x5", weight)
+      press = ShoulderPress.new("3x5")
     when "shoulder press"
       weight = (0.9 * bench_5rm).round
-      Exercise.new(BenchPress.new, "3x5", weight)
+      press = BenchPress.new("3x5")
     end
+
+    Exercise.new(press.name, press.rep_scheme, weight)
   end
 
   def inspect
@@ -79,18 +86,21 @@ class TexasMethodDay3 # aka IntensityDay. Light warmup (doubles/singles)
 
   def create_squat(previous_squat_5rm)
     weight = BackSquat.rounded_weight(previous_squat_5rm + 5)
-    Exercise.new(BackSquat.new.name, "1x5", weight)
+    squat = BackSquat.new("1x5")
+    Exercise.new(squat.name, squat.rep_scheme, weight)
   end
 
   def create_press(day_1_press, previous_press_5rm)
     case day_1_press.movement
     when "bench press"
       weight = previous_press_5rm + 5
-      Exercise.new(BenchPress.new, "1x5", weight)
+      press = BenchPress.new("1x5")
     when "shoulder press"
       weight = previous_press_5rm + 2
-      Exercise.new(ShoulderPress.new, "1x5", weight)
+      press = ShoulderPress.new("1x5")
     end
+
+    Exercise.new(press.name, press.rep_scheme, weight)
   end
 
   def inspect

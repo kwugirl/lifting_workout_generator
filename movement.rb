@@ -1,8 +1,8 @@
 class Movement
   attr_reader :name, :rep_scheme, :description
 
-  def initialize
-    @rep_scheme = rep_scheme_options.sample
+  def initialize(rep_scheme=nil)
+    @rep_scheme = rep_scheme || rep_scheme_options.sample
     @description = description
   end
 
