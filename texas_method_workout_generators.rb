@@ -38,6 +38,32 @@ class TexasMethodDay1 # aka VolumeDay
 end
 
 class TexasMethodDay2 # aka RecoveryDay
+  attr_reader :squat, :press
+
+  def initialize(day_1_plan, bench_5rm, shoulder_press_5rm)
+    @squat = create_squat(day_1_plan.squat)
+    @press = create_press(day_1_plan.press, bench_5rm, shoulder_press_5rm)
+  end
+
+  def create_squat(day_1_squat)
+    weight = BackSquat.rounded_weight(0.8 * day_1_squat.weight)
+    Exercise.new(BackSquat.new.name, "2x5", weight)
+  end
+
+  def create_press(day_1_press, bench_5rm, shoulder_press_5rm)
+    case day_1_press.movement
+    when "bench press"
+      weight = (0.9 * shoulder_press_5rm).round
+      Exercise.new(ShoulderPress.new, "3x5", weight)
+    when "shoulder press"
+      weight = (0.9 * bench_5rm).round
+      Exercise.new(BenchPress.new, "3x5", weight)
+    end
+  end
+
+  def inspect
+    "Texas Method Day 2: #{squat.inspect}, #{press.inspect}"
+  end
 end
 
 class TexasMethodDay3 # aka IntensityDay
