@@ -2,8 +2,8 @@ require 'minitest/autorun'
 require './exercises'
 require './pull_exercises'
 
-# pullup = PullUp.new
-# puts Exercise.new(pullup, pullup.rep_scheme)
+pullup = PullUp.new
+puts Exercise.new(pullup.name, pullup.rep_scheme)
 
 # ring_row = RingRow.new
 # puts Exercise.new(ring_row, ring_row.rep_scheme)

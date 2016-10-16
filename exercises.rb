@@ -2,7 +2,7 @@ class Exercise
   attr_reader :movement, :rep_scheme, :weight
 
   def initialize(movement, rep_scheme, weight=nil)
-    @movement = movement.to_s
+    @movement = movement
     @rep_scheme = rep_scheme
     @weight = weight
   end
