@@ -2,9 +2,12 @@ require './lifts'
 require './exercises'
 
 class TexasMethodDay1 # aka VolumeDay
-  attr_reader :squat, :press, :deadlift
+  attr_reader :squat, :press, :deadlift, :squat_5rm, :press_5rm
 
   def initialize(squat_5rm, press_type, press_5rm, deadlift_5rm)
+    @squat_5rm = squat_5rm
+    @press_5rm = press_5rm
+
     @squat = create_squat_exercise(squat_5rm)
     @press = create_press_exercise(press_type, press_5rm)
     @deadlift = create_deadlift_exercise(deadlift_5rm)
@@ -66,5 +69,31 @@ class TexasMethodDay2 # aka RecoveryDay
   end
 end
 
-class TexasMethodDay3 # aka IntensityDay
+class TexasMethodDay3 # aka IntensityDay. Light warmup (doubles/singles)
+  attr_reader :squat, :press
+
+  def initialize(day_1_plan)
+    @squat = create_squat(day_1_plan.squat_5rm)
+    @press = create_press(day_1_plan.press, day_1_plan.press_5rm)
+  end
+
+  def create_squat(previous_squat_5rm)
+    weight = BackSquat.rounded_weight(previous_squat_5rm + 5)
+    Exercise.new(BackSquat.new.name, "1x5", weight)
+  end
+
+  def create_press(day_1_press, previous_press_5rm)
+    case day_1_press.movement
+    when "bench press"
+      weight = previous_press_5rm + 5
+      Exercise.new(BenchPress.new, "1x5", weight)
+    when "shoulder press"
+      weight = previous_press_5rm + 2
+      Exercise.new(ShoulderPress.new, "1x5", weight)
+    end
+  end
+
+  def inspect
+    "Texas Method Day 3: #{squat.inspect}, #{press.inspect}"
+  end
 end
