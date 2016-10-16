@@ -1,6 +1,6 @@
 require './movement'
 
-class PullExercise
+class PullMovement
   def self.create_new
     [PullUp, RingRow, PauseRingRow].sample.new
   end

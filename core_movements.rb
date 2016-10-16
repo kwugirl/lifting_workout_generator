@@ -1,6 +1,6 @@
 require './movement'
 
-class CoreExercise
+class CoreMovement
   def self.create_new
     [SitUp, Plank, SidePlank, VitKPlank,
       HangingKneeRaises, TwistingHangingKneeRaises, RussianTwist].sample.new

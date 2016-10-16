@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require './exercises'
-require './pull_exercises'
+require './pull_movements'
 
 pullup = PullUp.new
 puts Exercise.new(pullup.name, pullup.rep_scheme)
@@ -11,6 +11,6 @@ puts Exercise.new(pullup.name, pullup.rep_scheme)
 # pause_ring_row = PauseRingRow.new
 # puts Exercise.new(pause_ring_row, pause_ring_row.rep_scheme)
 
-puts PullExercise.create_new.inspect
-puts PullExercise.create_new.inspect
-puts PullExercise.create_new.inspect
+puts PullMovement.create_new.inspect
+puts PullMovement.create_new.inspect
+puts PullMovement.create_new.inspect
