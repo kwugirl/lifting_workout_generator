@@ -9,6 +9,10 @@ class BackSquat < Movement
   def rep_scheme_options
     ["5x5"]
   end
+
+  def self.rounded_weight(weight)
+    weight.divmod(5).first * 5
+  end
 end
 
 class Deadlift < Movement
@@ -19,6 +23,10 @@ class Deadlift < Movement
 
   def rep_scheme_options
     ["1x5"]
+  end
+
+  def self.rounded_weight(weight)
+    weight.divmod(5).first * 5
   end
 end
 
