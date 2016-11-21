@@ -39,3 +39,4 @@ Day 3:
 # To do
 * command line interface
 * put into a Sinatra app & get onto Heroku
+* need way to adjust for personal max on planks
