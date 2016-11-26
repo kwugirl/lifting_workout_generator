@@ -55,7 +55,7 @@ class VitKPlank < Movement
   end
 
   def rep_scheme_options
-    ["15s"]
+    ["3x20s", "2x25s"]
   end
 end
 
