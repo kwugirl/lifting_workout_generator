@@ -37,6 +37,6 @@ Day 3:
 ```
 
 # To do
-* command line interface
 * put into a Sinatra app & get onto Heroku
-* need way to adjust for personal max on planks
+* revisit rounding schemes, may need to make them more granular and/or bar-based
+* need way to adjust for personal desired rep schemes, like length of planks
