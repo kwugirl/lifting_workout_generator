@@ -1,4 +1,4 @@
-require './movement'
+require_relative 'movement'
 
 class CoreMovement
   def self.create_new

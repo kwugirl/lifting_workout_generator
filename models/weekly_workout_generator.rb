@@ -1,6 +1,6 @@
-require './texas_method_workout_generators'
-require './pull_movements'
-require './core_movements'
+require_relative 'texas_method_workout_generators'
+require_relative 'pull_movements'
+require_relative 'core_movements'
 
 class WeeklyWorkoutPlan
   attr_reader :day_1, :day_2, :day_3

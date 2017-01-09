@@ -1,5 +1,5 @@
-require './lifts'
-require './exercises'
+require_relative 'lifts'
+require_relative 'exercises'
 
 class TexasMethodDay1 # aka VolumeDay
   attr_reader :squat, :press, :deadlift, :squat_5rm, :press_5rm

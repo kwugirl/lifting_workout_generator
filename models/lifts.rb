@@ -1,4 +1,4 @@
-require "./movement"
+require_relative 'movement'
 
 class BackSquat < Movement
   def initialize(rep_scheme=nil)
