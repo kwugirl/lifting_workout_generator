@@ -10,6 +10,6 @@ class LiftingWorkoutGenerator < Sinatra::Base
     deadlift_5rm = 230 # bump by 5 when ready to go up
     plan = WeeklyWorkoutPlan.new(squat_5rm, press_type, bench_5rm, shoulder_press_5rm, deadlift_5rm)
 
-    plan.to_s
+    erb :index, locals: {plan: plan}
   end
 end
