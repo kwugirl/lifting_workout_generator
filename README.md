@@ -1,5 +1,7 @@
 # Usage
 
+This is a lifting workout generator based on the Texas Method, with accessory work focused on improving core strength and training towards pull-ups. Try it out! [https://lifting-workout.herokuapp.com/](https://lifting-workout.herokuapp.com/)
+
 Given input:
 ```ruby
 squat_5rm = 140
