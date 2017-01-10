@@ -3,9 +3,16 @@ require_relative 'pull_movements'
 require_relative 'core_movements'
 
 class WeeklyWorkoutPlan
-  attr_reader :day_1, :day_2, :day_3
+  attr_reader :day_1, :day_2, :day_3, :inputs
 
   def initialize(squat_5rm, press_type, bench_5rm, shoulder_press_5rm, deadlift_5rm)
+    @inputs = {
+      squat_5rm: squat_5rm,
+      press_type: press_type,
+      bench_5rm: bench_5rm,
+      shoulder_press_5rm: shoulder_press_5rm,
+      deadlift_5rm: deadlift_5rm
+    }
     press_5rm = press_type == :bench ? bench_5rm : shoulder_press_5rm
 
     texas_method_day_1 = TexasMethodDay1.new(squat_5rm, press_type, press_5rm, deadlift_5rm)
