@@ -37,8 +37,3 @@ Day 3:
 1x5x145# Back squat
 5x5 Pause ring row
 ```
-
-# To do
-* put into a Sinatra app & get onto Heroku
-* revisit rounding schemes, may need to make them more granular and/or bar-based
-* need way to adjust for personal desired rep schemes, like length of planks
