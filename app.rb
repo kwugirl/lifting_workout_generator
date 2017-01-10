@@ -3,7 +3,7 @@ require_relative 'models/weekly_workout_generator'
 
 class LiftingWorkoutGenerator < Sinatra::Base
   get '/' do
-    'hi again'
+    erb :index
   end
 
   get '/workout' do
