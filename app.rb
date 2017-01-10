@@ -6,12 +6,12 @@ class LiftingWorkoutGenerator < Sinatra::Base
     erb :index
   end
 
-  get '/workout' do
-    squat_5rm = 155 # bump by 5 when ready to go up
-    press_type = :bench
-    bench_5rm = 97 # bump by 5 when ready to go up
-    shoulder_press_5rm = 72 # bump by 2 when ready to go up
-    deadlift_5rm = 230 # bump by 5 when ready to go up
+  post '/workout' do
+    squat_5rm = params[:squat_5rm].to_i
+    press_type = params[:press_type].to_sym
+    bench_5rm = params[:bench_5rm].to_i
+    shoulder_press_5rm = params[:shoulder_press_5rm].to_i
+    deadlift_5rm = params[:deadlift_5rm].to_i
     plan = WeeklyWorkoutPlan.new(squat_5rm, press_type, bench_5rm, shoulder_press_5rm, deadlift_5rm)
 
     erb :workout, locals: {plan: plan}
